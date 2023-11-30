@@ -1,0 +1,40 @@
+server:
+  servlet:
+    context-path: /
+  port: 8080
+  compression:
+    mime-types:
+      - application/json
+
+spring:
+  application:
+    name: default-arquetype
+  main:
+    allow-bean-definition-overriding: true
+  liquibase:
+    enabled: false
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+
+    cache:
+      connection:
+        mode: CONNECTION
+      channel:
+        size: 50
+      checkout-timeout: 10000
